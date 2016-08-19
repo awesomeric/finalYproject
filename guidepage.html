@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>欢迎</title>
+    <link rel="stylesheet" href="#">
+    <link rel="stylesheet" href="#">
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/jquery.fullPage.js"></script>
+    <script src="js/echarts.js"></script>
+    <link href="css/jquery.fullPage.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <script>
+        $(function(){
+            $(".con").fullpage({
+                sectionsColor:['#', '#', '#7BAABE', '#f90','#1bbc9b'],
+                navigation: true,
+                anchors:['p1','p2','p3','p4'],
+
+                afterLoad:function(anchorLink,index){
+                    if(index ==''){
+                        $('#effect1').addClass('animated swing');
+                        setTimeout(function(){
+                            $('#effect1').removeClass('swing');
+                        }, 2000);
+
+                    }
+                }
+
+            })
+        })
+    </script>
+
+</head>
+<header>
+<style>
+    section.s1{
+        color:#f6f6f6;
+        text-align: center;
+
+    }
+    #effect1{
+        animation-iteration-count:infinite;
+        animation-duration:2s;
+    }
+</style>
+    <div class="con">
+        <section class="section s1" style="background-image:url(images/math1.jpg);background-position: bottom  ;">
+            <div id="effect1"class="animated swing ">
+            <h1 >数学之美,从这里开始</h1>
+            <p >design by Tang Yucan</p>
+            </div>
+        </section>
+        <section class="section s2">
+            <div id="main"style="width:100%;height:95%;">
+
+            </div>
+            <div style="float: left;background-color: red;"></div>
+            <script type="text/javascript">
+
+                var dom = document.getElementById("main");
+                var myChart = echarts.init(dom);
+                var app = {};
+                option = null;
+                var data = [];
+
+                for (var i = 0; i <= 360; i++) {
+                    var t = i / 180 * Math.PI;
+                    var r = Math.sin(2 * t) * Math.cos(2 * t);
+                    data.push([r, i]);
+                }
+
+                option = {
+                    legend: {
+                        data: ['line']
+                    },
+                    polar: {
+                        center: ['50%', '54%']
+                    },
+                    tooltip: {
+                        trigger: 'axis',
+                        axisPointer: {
+                            type: 'cross'
+                        }
+                    },
+                    angleAxis: {
+                        type: 'value',
+                        startAngle: 0
+                    },
+                    radiusAxis: {
+                        min: 0
+                    },
+                    series: [{
+                        coordinateSystem: 'polar',
+                        name: 'line',
+                        type: 'line',
+                        showSymbol: false,
+                        data: data
+                    }],
+                    animationDuration:10000
+                };if (option && typeof option === "object")
+                {
+                    var startTime = +new Date();myChart.setOption(option, true);
+                    var endTime = +new Date();
+                    var updateTime =endTime - startTime;console.log("Time used:", updateTime);
+                }
+            </script>
+        </section>
+        <section class="section s3">
+            <div id="main2"style="width:100%;height: 100% "></div>
+            <script type="text/javascript">
+                var myChart = echarts.init(document.getElementById('main2'));
+                option = {
+                    tooltip : {
+                        trigger: 'axis',
+                        showDelay : 0,
+                        axisPointer:{
+                            show: true,
+                            type : 'cross',
+                            lineStyle: {
+                                type : 'dashed',
+                                width : 1
+                            }
+                        }
+                    },
+                    legend: {
+                        data:['sin','cos']
+                    },
+                    toolbox: {
+                        show : true,
+                        feature : {
+                            mark : {show: true},
+                            dataZoom : {show: true},
+                            dataView : {show: true, readOnly: false},
+                            restore : {show: true},
+                            saveAsImage : {show: true}
+                        }
+                    },
+                    xAxis : [
+                        {
+                            type : 'value',
+                            scale:true
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            type : 'value',
+                            scale:true
+                        }
+                    ],
+                    series : [
+                        {
+                            name:'sin',
+                            type:'scatter',
+                            large: true,
+                            symbolSize: 3,
+                            data: (function () {
+                                var d = [];
+                                var len = 10000;
+                                var x = 0;
+                                while (len--) {
+                                    x = (Math.random() * 10).toFixed(3) - 0;
+                                    d.push([
+                                        x,
+                                        //Math.random() * 10
+                                        (Math.sin(x) - x * (len % 2 ? 0.1 : -0.1) * Math.random()).toFixed(3) - 0
+                                    ]);
+                                }
+                                //console.log(d)
+                                return d;
+                            })()
+                        },
+                        {
+                            name:'cos',
+                            type:'scatter',
+                            large: true,
+                            symbolSize: 3,
+                            data: (function () {
+                                var d = [];
+                                var len = 10000;
+                                var x = 0;
+                                while (len--) {
+                                    x = (Math.random() * 10).toFixed(3) - 0;
+                                    d.push([
+                                        x,
+                                        //Math.random() * 10
+                                        (Math.cos(x) - x * (len % 2 ? 0.1 : -0.1) * Math.random()).toFixed(3) - 0
+                                    ]);
+                                }
+                                //console.log(d)
+                                return d;
+                            })()
+                        }
+                    ]
+                };
+
+                // 使用刚指定的配置项和数据显示图表。
+                myChart.setOption(option);
+            </script>
+        </section>
+
+
+        <section class="section s4">
+
+                <h1 style="text-align: center; ">现在，从这里开始你的美妙数学之旅      <a href="index.html" class="button button-glow button-border button-rounded button-primary">    开始</a></h1>
+
+            <p style="text-align: center;">copyright@ 2016</p>
+
+
+
+        </section>
+
+
+    </div>
+</header>
+<body>
+
+</body>
+</html>

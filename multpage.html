@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/myself.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link href="css/buttons.css" rel="stylesheet">
+    <style>
+        .body{
+            background-image: url(images/bcg1.png);
+            background-size:cover;
+
+
+
+
+        }
+        .demo{
+            width:500px;
+        }
+    </style>
+</head>
+
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/quiz.js"></script>
+<script type="text/javascript">
+    var init={'questions':[{'question':'3+2=？', 'answers':['4','5','6','7'],'correctAnswer':2},
+        {'question':'5+4=?','answers':['6','7','8','9'],'correctAnswer':4},
+        {'question':'4+3=?','answers':['5','6','7','8'],'correctAnswer':3},
+        {'question':'1+7=?','answers':['5','6','7','8'],'correctAnswer':4},
+        {'question':'2+4=?','answers':['5','6','7','9'],'correctAnswer':2}]
+    };
+
+    $(function(){
+        $('#quiz-container').jquizzy({
+            questions: init.questions
+        });
+    });
+</script>
+
+<body class="body">
+<!--start nav-->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#" style="padding-top:1px;">
+            <img alt="Brand" src="images/icon48.png" >
+        </a>
+
+        <ul class="nav nav-pills  navbar-left"style="padding-top: 5px">
+            <li role="presentation"><a href="index.html"class=" button-caution">主页</a></li>
+            <li role="presentation"><a href="#"class=" button-primary">视频学习</a></li>
+            <li role="presentation"><a href="mathtable.html"class=" button-action">乘法表</a></li>
+            <li><a href="24.html"class="button-highlight">3824game</a></li>
+        </ul>
+        <ul class="nav  navbar-right nav-pills"style="padding-top: 5px" >
+            <li ><a href="#" class="button-3d">LOGIN</a></li>
+            <li><a class="button-3d button-highlight">关于</a></li>
+    </div>
+</nav>
+
+<div class="panel panel-primary"style="margin-top: 100px;margin-left: 50px;margin-right: 50px">
+    <div class="panel-heading">
+        <h3 class="panel-title">加法计算测试</h3>
+    </div>
+    <div class="panel-body">
+
+        <!--<div class="showbox" style="width: 400px;height: 400px;border: solid red">-->
+            <!--<p>showing the pictrue</p>-->
+        <!--</div>-->
+        <div class="col-lg-12">
+            <p>完成进度</p>
+            <div class="progress">
+                <div class="progress-bar progress-bar-success progress-bar-striped active" id="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
+                    <span class="sr-only">40% Complete (success)</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-7 showbox"style="height: 400px;border: solid red">
+               <div class="demo">
+                   <div id='quiz-container'></div>
+               </div>
+            </div>
+            <div class="col-lg-5 showbox"style="height: 400px;border:solid blue">
+                <p>showing the result</p>
+            </div>
+        </div>
+    </div>
+    <div class="panel-footer">
+        footer
+    </div>
+    </div>
+<footer>
+    <div class="col-lg-12" style="position: fixed;bottom: 0px;text-align: center">
+        <p>copyright 2016</p>
+
+    </div>
+</footer>

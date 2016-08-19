@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/myself.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="css/flipTimer.css">
+    <script src="js/pace.min.js"></script>
+    <script src="//fast.eager.io/hBJvBgqII0.js"></script>
+
+    <link href="css/pace-theme-center-atom.css" rel="external nofollow"  rel="stylesheet" />
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <style>
+        .body{
+            font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+            background-image: url(images/bcg1.png);
+            background-size:cover;
+
+            overflow-x:hidden;
+
+        }
+        #category{
+            padding: 30px;
+
+            text-align: center;
+            width: 100%;
+            margin: 5px 10px;
+        }
+        .thumbnail{
+            opacity: 0.9;
+
+
+        }
+        .footer{
+            background-color: gray;
+            opacity: 0.75;
+            text-align: center;
+
+
+            margin-top: 50px;
+            width: 100%;  }
+        .modal-dialog{
+            text-align: center;
+
+        }
+        .modal-content{
+            background-color:gold;
+        }
+        li{
+            margin:0 10px;
+        }
+
+    </style>
+
+</head>
+<script>
+    console.log("欢迎访问我的网站，但是这并不是网站的全部")
+</script>
+
+<div class="modal fade" id="subintro" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">减法</h4>
+            </div>
+            <div class="modal-body">
+                <p>减法是四则运算之一，从一个数量中减去另一个数量的运算叫做减法;已知两个加数的和与其中一个加数，求另一个加数的运算叫做减法。表示减法的符号是“-”，读作减号。用来计算减量。</p>
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-primary" data-dismiss="modal">知道了</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="multintro" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">乘法</h4>
+            </div>
+            <div class="modal-body">
+                <p>是指将相同的数加起来的快捷方式。其运算结果称为积。从哲学角度解析，乘法是加法的量变导致的质变结果。</p>
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-primary" data-dismiss="modal">知道了</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="divintro" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">除法</h4>
+            </div>
+            <div class="modal-body">
+                <p>除法概念除法是四则运算之一。已知两个因数的积与其中一个因数，求另一个因数的运算，叫做除法。</p>
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-primary" data-dismiss="modal">知道了</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="addintro" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">加法</h4>
+            </div>
+            <div class="modal-body">
+                <p>加法是基本的四则运算之一，它是指将两个或者两个以上的数、量合起来，变成一个数、量的计算。表达加法的符号为加号“+”。进行加法时以加号将各项连接起来。把和放在等号“=”之后</p>
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-primary" data-dismiss="modal">知道了</button>
+            </div>
+        </div>
+    </div>
+</div>
+<body class="body">
+
+
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.html" style="padding-top:1px;">
+            <img alt="Brand" src="images/icon48.png" >
+        </a>
+
+        <ul class="nav nav-pills  navbar-left"style="padding-top: 5px">
+            <li role="presentation"><a href="#"class=" button-caution">主页</a></li>
+            <li role="presentation"><a href="#"class=" button-primary">视频学习</a></li>
+            <li role="presentation"><a href="mathtable.html"class=" button-action">乘法表</a></li>
+            <li><a href="24.html"class="button-highlight">3824game</a></li>
+        </ul>
+        <ul class="nav  navbar-right nav-pills"style="padding-top: 5px" >
+            <li ><a href="#" class="button-caution">LOGIN</a></li>
+            <li><a class=" button-highlight">关于</a></li>
+</ul>
+    </div>
+</nav>
+
+<div class="jumbotron" style="margin:90px 10px 20px;text-align: center;border-radius: 10px">
+
+    <h1 >Easy<img src="images/icon48.png"class="animated tada"style="animation-iteration-count:infinite"> Math</h1>
+
+    <h2 style="font-size: 15px">一个简单的在线算术学习网站</h2>
+
+
+
+
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/jquery.flipTimer.js"></script>
+    <script>
+        $(function(){
+            $('.timer').flipTimer({
+                seconds: true,
+
+
+            });
+        });
+    </script>
+
+
+
+
+</div>
+
+<div class="row" id="category">
+<div class="col-lg-3">
+    <div class="thumbnail" id="tee">
+        <img src="images/symbols/4.png" style="padding-top: 5px">
+        <div class="caption">
+            <h3>加法</h3>
+            <p>Addition</p>
+            <p><a href="#"data-toggle="modal" data-target="#addintro" class="button button-highlight button-glow button-rounded"  >简介</a>
+                <a href="addpage.html" class="button button-action button-glow button-rounded" >开始</a>
+
+            </p>
+        </div>
+    </div>
+</div>
+    <div class="col-lg-3">
+        <div class="thumbnail">
+            <img src="images/symbols/3.png" alt="..." style="padding-top: 10px">
+            <div class="caption">
+                <h3>减法</h3>
+                <p>subtraction</p>
+                <p><a href="#" class="button button-highlight button-glow button-rounded" data-toggle="modal" data-target="#subintro"  >简介</a>
+                    <a href="addpage.html" class="button button-action button-glow button-rounded" >开始</a>
+
+                </p>
+
+            </div>
+        </div>
+
+
+    </div>
+    <div class="col-lg-3">
+        <div class="thumbnail">
+            <img src="images/symbols/2.png" alt="..."style="padding-top: 10px">
+            <div class="caption">
+                <h3>乘法</h3>
+                <p>multiplication</p>
+                <p><a href="#" class="button button-highlight button-glow button-rounded"data-target="#multintro" data-toggle="modal"  >简介</a>
+                    <a href="addpage.html" class="button button-action button-glow button-rounded" >开始</a>
+
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <div class="thumbnail">
+            <img src="images/symbols/1.png" alt="..." style="padding-top: 10px">
+            <div class="caption">
+                <h3>除法</h3>
+                <p>division</p>
+                <p><a href="#" class="button button-highlight button-glow button-rounded" data-target="#divintro"data-toggle="modal" >简介</a>
+                    <a href="addpage.html" class="button button-action button-glow button-rounded" >开始</a>
+
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="timer"style="text-align: center;">
+
+    <div class="hours"></div>
+    <div class="minutes"></div>
+    <div class="seconds"></div>
+</div>
+<div class="footer">
+    <div class="container" style="">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="widget">
+                    <h4>最新文章</h4>
+                    <div class="content recent-post">
+                        <div class="recent-single-post">
+                            <a href="#" class="post-title">我的第一篇文章</a>
+                            <div class="date">
+                                7/12/2015
+                            </div>
+                        </div>
+                        <div class="recent-single-post">
+                            <a href="#" class="post-title">我的第一篇文章</a>
+                            <div class="date">
+                                7/12/2015
+                            </div>
+                        </div>
+                        <div class="recent-single-post">
+                            <a href="#" class="post-title">我的第一篇文章</a>
+                            <div class="date">
+                                7/12/2015
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+            <div class="col-lg-4">
+                <div class="widget">
+                    <h4>最新动态</h4>
+                    <div class="content recent-post">
+                        <div class="recent-single-post">
+                            <a href="" class="btn btn-success">关于我的最新动态</a>
+                            <div class="date">
+                                7/12/2015
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-4">
+                <div class="widget">
+                    <h4>合作伙伴</h4>
+                    <div class="content tag-cloud friend links">
+                        <a href="#"title="sb">bootstrap中文</a>
+                        <a href="#">bootstrap中文</a>
+                        <a href="#">bootstrap中文</a>
+                        <a href="#">bootstrap中文</a>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>copyright®️2016</p>
+            </div>
+    </div>
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>3824游戏</title>
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="//fast.eager.io/hBJvBgqII0.js"></script>
+
+
+<style>
+    body {
+
+        font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+
+        background-image: url(images/bcg1.png);
+
+        overflow: hidden;
+    }
+
+    * {
+
+        margin: 0; padding: 0;
+    }
+
+
+
+    input[type="submit"] {
+
+
+
+    }
+
+    form {
+        position: absolute;
+
+        width: 600px;
+        height: 200px;
+        text-align: center;
+    }
+    li{
+        margin:0 10px;
+    }
+</style>
+</head>
+
+<body oncontextmenu="return false" oncopy="return false" onselectstart="return false">
+<script>
+
+    function main() {
+        var typestate
+        var exists = false
+        var numbervalue = new Array();
+        var evaltype = new Array();
+        var jisuanfua = new Array();
+        var jisuanfub = new Array();
+        var jisuanfuc = new Array();
+
+
+        for (i = 0; i < 4; i++) {
+
+            numbervalue[i] = Math.ceil(Math.random() * 10);
+
+        }
+
+        var el = document.getElementById('inputText');
+        el.value = numbervalue;
+
+//数字排列有4!=12个情况
+        //组合方式一:无括号 a+b+c+d
+        //组合方式二:有一个括号 (a+b)+c+d;a+(b+c)+d;a+b+(c+d);
+        //组合方式三:有二个括号 (a+b)+(c+d);((a+b)+c)+d
+        //总结下来都可以认为是存在两个括号的情况
+        //typestate='('+numbervalue[i] + jisuanfua[x] + numbervalue[j] + ')'+jisuanfub[y] +'('+ numbervalue[k] + jisuanfuc[z] + numbervalue[l]+')'
+        //typestate='('+'('+numbervalue[i] + jisuanfua[x] + numbervalue[j] +')'+ jisuanfub[y] + numbervalue[k] +')'+ jisuanfuc[z] + numbervalue[l]
+        //执行组合方式    //符号种类 + - * /
+        evaltype[0]='+'
+        evaltype[1]='-'
+        evaltype[2]='*'
+        evaltype[3]='/'
+        for (t=0;t<4 ;t++ )
+        {
+            jisuanfua[t]=evaltype[t]
+            jisuanfub[t]=evaltype[t]
+            jisuanfuc[t]=evaltype[t]
+        }//传递符号
+        for (x=0;x<4 ;x++ )
+        {
+            if (exists==true)
+            {
+                return
+            }
+            for (y=0;y<4 ;y++)
+            {
+                if (exists==true)
+                {
+                    return
+                }
+                for (z=0;z<4;z++)
+                {
+                    ///下面开始组合方式
+                    for (i=0;i<4;i++)
+                    {
+                        for (j=0;j<4;j++)
+                        {
+                            if (j==i)
+                            {
+                                continue
+                            }else{
+                                for (k=0;k<4;k++)
+                                {
+                                    if ((k==i)||(k==j))
+                                    {
+                                        continue
+                                    }else{
+                                        for (l=0;l<4;l++)
+                                        {
+                                            if ((l==i)||(l==j)||(l==k))
+                                            {
+                                                continue
+                                            }else{
+                                                typestate='('+numbervalue[i] + jisuanfua[x] + numbervalue[j] + ')'+jisuanfub[y] +'('+ numbervalue[k] + jisuanfuc[z] + numbervalue[l]+')'
+                                                if (checkvalue(typestate)==24)
+                                                {
+                                                    document.all.answer.textContent=typestate  ;                                                  exists=true
+                                                    var tar = document.getElementById('answer')
+                                                    tar.style.visibility='hidden'
+
+                                                    break
+                                                }else{
+                                                    typestate='('+'('+numbervalue[i] + jisuanfua[x] + numbervalue[j] +')'+ jisuanfub[y] + numbervalue[k] +')'+ jisuanfuc[z] + numbervalue[l]
+                                                    if (checkvalue(typestate)==24)
+                                                    {
+                                                        document.all.answer.textContent=typestate;                                                        exists=true
+                                                        var tar = document.getElementById('answer')
+                                                        tar.style.visibility='hidden'
+                                                        break
+                                                    }else{
+                                                        typestate='('+numbervalue[i] + jisuanfua[x] +'('+  numbervalue[j] + jisuanfub[y] + numbervalue[k] +')'+')'+ jisuanfuc[z] + numbervalue[l]
+                                                        if (checkvalue(typestate)==24)
+                                                        {
+                                                            document.all.answer.textContent=typestate;
+                                                            exists=true
+                                                            var tar = document.getElementById('answer')
+                                                            tar.style.visibility='hidden'
+                                                            break
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    //结束组合方式
+                }
+            }
+        }
+        if (exists!='true')
+        {
+            document.all.endtext.value='这四个数不存在可能,请重新生成'
+            return main()
+        }
+
+    }function checkvalue(a)
+    {
+        var b
+        b=eval(a)
+        return (b)
+    }function getanswer(){
+        var tar = document.getElementById('answer')
+        tar.style.visibility='visible'
+
+
+    }
+
+</script>
+  <canvas id="text" width="500" height="100" style="position: absolute;"></canvas>
+<canvas id="stage" width="500" height="100" style="position: absolute;"></canvas>
+<nav class="navbar navbar-default navbar-fixed-top" style="float: left">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.html" style="padding-top:1px;">
+            <img alt="Brand" src="images/icon48.png" >
+        </a>
+
+        <ul class="nav nav-pills  navbar-left"style="padding-top: 5px">
+            <li role="presentation"><a href="#"class=" button-caution">主页</a></li>
+            <li role="presentation"><a href="#"class=" button-primary">视频学习</a></li>
+            <li role="presentation"><a href="mathtable.html"class=" button-action">乘法表</a></li>
+            <li><a href="24.html"class="button-highlight">3824game</a></li>
+        </ul>
+        <ul class="nav  navbar-right nav-pills"style="padding-top: 5px" >
+            <li ><a href="#" class="button-caution">LOGIN</a></li>
+            <li><a class=" button-highlight">关于</a></li>
+        </ul>
+    </div>
+</nav>
+
+<form id="form">
+    <input type="text" id="inputText" value="算24" hidden/>
+    <input type="submit" value="开始" onclick="main()"class="button button-action button-rounded button-border"/>
+    <button onclick="getanswer()" href="#"style="text-align: center"class="button button-highlight button-rounded button-border">解答</button>
+    <h1 id="answer"style="visibility: hidden;color: gold;font-style: italic">我是答案</h1>
+
+
+</form>
+<footer style="position: absolute;width: 100%; bottom: 0px;text-align: center;color: #FFFFFF">
+    <p>TYC版权所有，严格禁止盗用</p>
+    <p>copyright©2016</p>
+
+
+</footer>
+
+
+
+
+
+
+
+  <script src='js/EasePack.min.js'></script>
+<script src='js/TweenLite.min.js'></script>
+<script src='js/easeljs-0.7.1.min.js'></script>
+<script src='js/requestAnimationFrame.js'></script>
+
+  <script src="js/index.js"></script>
+
+</body>
+
+</html>
